@@ -38,6 +38,7 @@ tradeApp.init = function() {
             // Left Player object
             playerLeft = {
                 name : $('#nameLeft').val(),
+                age : $('#ageLeft').val(),
                 gpg : $('#gpgLeft').val(),
                 apg : $('#apgLeft').val(),
                 hpg : $('#hpgLeft').val(),
@@ -49,10 +50,31 @@ tradeApp.init = function() {
             
             // stat weight function
             const tradeScore = () => {
+                const age = playerLeft.age;
+                const ageModifier = 0;
                 const weightedGpg = playerLeft.gpg * 11;         
                 const weightedApg = playerLeft.apg * 7;
                 const weightedSpg = playerLeft.spg * 1;
                 const weightedHpg = playerLeft.hpg * 1;
+                const weightedAge = () => {
+                    if (age > 18){
+                        alert('no beuno');
+                    } else if (age >= 18 && age <= 21){
+                        ageModifier = 2;
+                    } else if (age >= 22 && age <= 26){
+                        ageModifier = 1.5;
+                    } else if (age >= 27 && age <= 30){
+                        ageModifier = 1;
+                    } else if (age >= 31 && age <= 34){
+                        ageModifier = 0.75;
+                    } else if (age >= 35 && age <= 40){
+                        ageModifier = 0.5;
+                    } else {
+                        alert('really no beuno');
+                    }
+                    
+                }
+        
                 
                 fullTradeScoreLeft = (weightedGpg + weightedHpg + weightedSpg + weightedApg) / 2;
 
@@ -76,6 +98,7 @@ tradeApp.init = function() {
             // Right Player object
             playerRight = {
                 name : $('#nameRight').val(),
+                age : $('#ageRight').val(),
                 gpg : $('#gpgRight').val(),
                 apg : $('#apgRight').val(),
                 hpg : $('#hpgRight').val(),
@@ -91,6 +114,7 @@ tradeApp.init = function() {
                 const weightedApg = playerRight.apg * 7;
                 const weightedSpg = playerRight.spg * 1;
                 const weightedHpg = playerRight.hpg * 1;
+
                 
                 fullTradeScoreRight = (weightedGpg + weightedHpg + weightedSpg + weightedApg) / 2;
 
@@ -104,11 +128,6 @@ tradeApp.init = function() {
             displayRight.html(`<h2> ${playerRight.name} </h2>`);
             displayRight.append(`<p> ${tradeScoreRight} </p>`);
             displayRight.addClass('submitted');
-
-            // // conditional evaluate button creation
-            // if ($(displayRight).hasClass('submitted') && $  ('#displayPlayerLeft').hasClass('submitted')) {
-            //     $('#evaluateTrade').html('<button type="submit" id="evaluate" class="evaluate" name="evaluate"> evaluate </button>');
-            // };
 
             evaluateButton();
                     
@@ -128,13 +147,12 @@ tradeApp.init = function() {
             // if the trade difference is within 5% accept trade
             if (tradeDifference <= 0.25 && tradeDifference >= -0.25){
                 tradeStatus.html('<h3> trade accepted!!! </h3>');
-                //display reset button
-                reset.html('<button class = "resetButton"> reset </button>')
             } else {
                 tradeStatus.html('<h3> trade rejected :( </h3>');
-                //display reset button
-                reset.html('<button class = "resetButton"> reset </button>')
             }
+
+            //display reset button
+            reset.html('<button class = "resetButton"> reset </button>')
         })
 
         // reset button function
@@ -146,4 +164,4 @@ tradeApp.init = function() {
 
         
 
-            
+//branch test!
