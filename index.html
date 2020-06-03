@@ -3,12 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
-<body>
+<body> 
 
-    <h1>SBBHL GAME</h1>
+    <header class="wrapper">
+        <h1>make-a-trade</h1>
+    </header>
 
+    <main>       
+        <form action="" class="wrapper">
+            <!-- left side player inputs -->
+            <div>
+
+                <fieldset class="playerLeft">
+                    <!-- player name -->
+                    <label for="nameLeft" class="sr-only"> Name </label>
+                    <input type="text" name="playerLeft" id="nameLeft" class="player name" placeholder="name" required>
+                    <!-- player goals per game -->
+                    <label for="gpgLeft" class="sr-only"> Goals per game </label>
+                    <input type="text" name="playerLeft" id="gpgLeft" class="player gpg" placeholder="goals / game" required>
+                    <!-- player assists per game -->
+                    <label for="apgLeft" class="sr-only"> assists per game </label>
+                    <input type="text" name="playerLeft" id="apgLeft" class="player apg" placeholder="assists / game" required>
+                    <!-- player shots per game -->
+                    <label for="spgLeft" class="sr-only"> shots per game </label>
+                    <input type="text" name="playerLeft" id="spgLeft" class="player spg" placeholder="shots / game" required>
+                    <!-- player hits per game -->
+                    <label for="hpgLeft" class="sr-only"> hits per game </label>
+                    <input type="text" name="playerLeft" id="hpgLeft" class="player hpg" placeholder="hits / game" required>
+        
+                    <!-- submit button -->
+                    <button type="submit" id="submitPlayerLeft" class="submitPlayerLeft" name="playerLeft">submit player</button>
+        
+                </fieldset>
+        
+                <!-- hidden player display left, h2 and p will be created within -->
+                <div id="displayPlayerLeft"></div>
+                <!-- hidden player display right, h2 and p will be created within -->
+                <div id="displayPlayerRight"></div>
+        
+        
+                <fieldset class="playerRight">
+                    <!-- player name -->
+                    <label for="nameRight" class="sr-only"> Name </label>
+                    <input type="text" name="playerRight" id="nameRight" class="player name" placeholder="name" required>
+                    <!-- player goals per game -->
+                    <label for="gpgRight" class="sr-only"> goals per game </label>
+                    <input type="text" name="playerRight" id="gpgRight" class="player gpg" placeholder="goals / game" required>
+                    <!-- player assists per game -->
+                    <label for="apgRight" class="sr-only"> assists per game </label>
+                    <input type="text" name="playerRight" id="apgRight" class="player apg" placeholder="assists / game" required>
+                    <!-- player shots per game -->
+                    <label for="spgRight" class="sr-only"> shots per game </label>
+                    <input type="text" name="playerRight" id="spgRight" class="player spg" placeholder="shots / game" required>
+                    <!-- player hits per game -->
+                    <label for="hpgRight" class="sr-only"> hits per game </label>
+                    <input type="text" name="playerRight hpg" id="hpgRight" class="player hpg" placeholder="hits / game" required>
+        
+                    <!-- submit button -->
+                    <button type="submit" id="submitPlayerRight" class="submitPlayerRight" name="submitRight">submit player</button>
+        
+                </fieldset>
+        
+            </div>
+
+            <div class="completeTrade">
+                <div id="evaluateTrade"></div>
+    
+                <div class="tradeStatus"></div>
+
+                <div class="reset"></div>
+            </div>
+            
+        </form>
+    </main>
+
+    <footer class="wrapper">
+        <p>made by <a href="http://scottcarterdev.com">Scott Carter</a>.</p>
+    </footer>
+
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="scripts.js"></script>
     
 </body>
