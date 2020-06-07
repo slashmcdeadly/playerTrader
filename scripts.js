@@ -1,167 +1,148 @@
 
-$(function(){
 
+    // document ready
+$(function(){
+    // run trade app
     tradeApp.init();
+})
+
+let player = [
+    {},
     
-});
+    {}
+];
+
+let leftTradeScore, rightTradeScore = 0;
 
 const tradeApp = {};
+tradeApp.init = () => {
 
-// init function
-tradeApp.init = function() {
-
-    let playerLeft, playerRight = {};
-    let leftTradeScore = 0;
-    let rightTradeScore = 0;
-
-    // conditional evaluate button creation
     
-    const evaluateButton = () =>  {
-        if ($('#displayPlayerLeft').hasClass('submitted') && $('#displayPlayerRight').hasClass('submitted')) {
-            $('#evaluateTrade').html('<button type="submit" id="evaluate" class="evaluate" name="evaluate"> evaluate </button>');}
-    };
-    
-    // link up the submit buttons
-    $("form").on("submit", function(event){
-
-        // prevent the default functionality of submit
+    // prevent defaul functionality of submit
+    $('form').on('submit', function(event){
         event.preventDefault();
+    });
+    
+    
+    // Left submit button functionality
+    $('.playerButton').on('click', function(e){
         
-        // scoped variables
-        let fullTradeScoreLeft = 0;
-        let fullTradeScoreRight = 0;
+        // evaluate button creation function
+        const evaluateButton = () =>  {
+            if ($('#displayPlayerLeft').hasClass('submitted') && $('#displayPlayerRight').hasClass('submitted')) {
+                $('#evaluateTrade').html('<button type="submit" id="evaluate" class="evaluate" name="evaluate"> evaluate </button>');}
+        };
         
-        // make the left player submit functionality
-        $('.playerLeft button').on('click', function(){
-            
-            // store the values from the inputs
-            // Left Player object
-            playerLeft = {
+        // age modifier method
+        const ageMod = (age) => {
+            if (age < 17){
+                return 0;
+            } else if (age >= 18 && age <= 21) {
+                return 2;
+            } else if (age >= 22 && age <= 26) {
+                return 1.5;
+            } else if (age >= 27 && age <= 30) {
+                return 1;
+            } else if (age >= 31 && age <= 34) {
+                return 0.5;
+            } else if (age >= 35 && age <= 40) {
+                return 0.25;
+            } else {
+                return 0;
+            }
+        }
+        
+        // assign the values to the player array and wieght them based on which button you press.
+
+        if (e.target.id === 'submitPlayerLeft'){
+
+            const displayLeft = $("#displayPlayerLeft");
+
+            player[0] = {
+                side : 'left',
                 name : $('#nameLeft').val(),
                 age : $('#ageLeft').val(),
-                gpg : $('#gpgLeft').val(),
-                apg : $('#apgLeft').val(),
-                hpg : $('#hpgLeft').val(),
-                spg : $('#spgLeft').val(),
-            };
-            
-            // disable button after submitting
-            $('.playerLeft button').prop('disabled', true);
-            
-            // stat weight function
-            const tradeScore = () => {
-                const age = playerLeft.age;
-                const ageModifier = 0;
-                const weightedGpg = playerLeft.gpg * 11;         
-                const weightedApg = playerLeft.apg * 7;
-                const weightedSpg = playerLeft.spg * 1;
-                const weightedHpg = playerLeft.hpg * 1;
-                const weightedAge = () => {
-                    if (age > 18){
-                        alert('no beuno');
-                    } else if (age >= 18 && age <= 21){
-                        ageModifier = 2;
-                    } else if (age >= 22 && age <= 26){
-                        ageModifier = 1.5;
-                    } else if (age >= 27 && age <= 30){
-                        ageModifier = 1;
-                    } else if (age >= 31 && age <= 34){
-                        ageModifier = 0.75;
-                    } else if (age >= 35 && age <= 40){
-                        ageModifier = 0.5;
-                    } else {
-                        alert('really no beuno');
-                    }
-                    
-                }
+                gpg : ($('#gpgLeft').val()) * 11,
+                apg : ($('#apgLeft').val()) * 7,
+                hpg : ($('#hpgLeft').val()) * 1.5,
+                spg : $('#spgLeft').val() * 1,
+                // run age modifier method
+                modifiers : ageMod($('#ageLeft').val()),
+                // calculate trade score
+                totalTradeScore : (player) => {
+                    let score = (player.gpg + player.apg + player.spg + player.hpg) * player.modifiers;
         
-                
-                fullTradeScoreLeft = (weightedGpg + weightedHpg + weightedSpg + weightedApg) / 2;
-
-                return fullTradeScoreLeft;
+                    return score;
+                }
             }
+
+            // add in the html elements to display the player name and trade score
             
-            // display player name and trade score
-            const displayLeft = $("#displayPlayerLeft");
-            const tradeScoreLeft = tradeScore();
-            
-            displayLeft.html(`<h2> ${playerLeft.name} </h2>`);
-            displayLeft.append(`<p> ${tradeScoreLeft} </p>`);
+            displayLeft.html(`<h2> ${player[0].name} </h2>`);
+            displayLeft.append(`<p> ${player[0].totalTradeScore(player[0])} </p>`);
+            // give class submitted
             displayLeft.addClass('submitted');
 
             evaluateButton();
+            
+        } else {
 
-        });
-        
-        // right player submit functionality
-        $('.playerRight button').on('click', function(){
-            // Right Player object
-            playerRight = {
+            const displayRight = $("#displayPlayerRight");
+
+            player[1] = {
+                side : 'right',
                 name : $('#nameRight').val(),
                 age : $('#ageRight').val(),
-                gpg : $('#gpgRight').val(),
-                apg : $('#apgRight').val(),
-                hpg : $('#hpgRight').val(),
-                spg : $('#spgRight').val()
-            };
+                gpg : ($('#gpgRight').val()) * 11,
+                apg : ($('#apgRight').val()) * 7,
+                hpg : ($('#hpgRight').val()) * 1.5,
+                spg : $('#spgRight').val() * 1,
+                // run age modifier method
+                modifiers : ageMod($('#ageRight').val()),
+                // calculate trade score
+                totalTradeScore : (player) => {
+                    let score = (player.gpg + player.apg + player.spg + player.hpg) * player.modifiers;
+        
+                    return score;
+                }
+            }   
 
-            // disable button after submitting
-            $('.playerRight button').prop('disabled', true);
-            
-            // stat weight function
-            const tradeScore = () => {
-                const weightedGpg = playerRight.gpg * 11;         
-                const weightedApg = playerRight.apg * 7;
-                const weightedSpg = playerRight.spg * 1;
-                const weightedHpg = playerRight.hpg * 1;
-
-                
-                fullTradeScoreRight = (weightedGpg + weightedHpg + weightedSpg + weightedApg) / 2;
-
-                return fullTradeScoreRight;
-            }
-            
-            // display player name and trade score
-            const displayRight = $("#displayPlayerRight");
-            const tradeScoreRight = tradeScore();
-            
-            displayRight.html(`<h2> ${playerRight.name} </h2>`);
-            displayRight.append(`<p> ${tradeScoreRight} </p>`);
+            // add in the html elements to display the player name and trade score
+            displayRight.html(`<h2> ${player[1].name} </h2>`);
+            displayRight.append(`<p> ${player[1].totalTradeScore(player[1])} </p>`);
+            // give class submitted
             displayRight.addClass('submitted');
 
             evaluateButton();
-                    
-        });
-        
-        // left and right player comparison function
-        $('#evaluateTrade').on('click', 'button', function(){
-            
-            leftTradeScore = $('#displayPlayerLeft p').text()
-            rightTradeScore = $('#displayPlayerRight p').text();
-
-            const tradeStatus = $('.tradeStatus');
-            const reset = $('.reset');
-
-            const tradeDifference = leftTradeScore - rightTradeScore;
-
-            // if the trade difference is within 5% accept trade
-            if (tradeDifference <= 0.25 && tradeDifference >= -0.25){
-                tradeStatus.html('<h3> trade accepted!!! </h3>');
-            } else {
-                tradeStatus.html('<h3> trade rejected :( </h3>');
-            }
-
-            //display reset button
-            reset.html('<button class = "resetButton"> reset </button>')
-        })
-
-        // reset button function
-        $('.reset').on('click', 'button', function(){
-            location.reload();
-        })
+        }  
     });
-}
 
+    // left and right player comparison function
+    $('#evaluateTrade').on('click', 'button', function(){
+
+        // store trade score variables
+        leftTradeScore = $('#displayPlayerLeft p').text()
+        rightTradeScore = $('#displayPlayerRight p').text();
         
+        const tradeStatus = $('.tradeStatus');
+        const reset = $('.reset');
 
-//branch test!
+        // trade difference
+        const tradeDifference = leftTradeScore - rightTradeScore;
+
+        // if the trade difference is within 5% accept trade
+        if (tradeDifference <= 1 && tradeDifference >= -1){
+            tradeStatus.html('<h3> trade accepted!!! </h3>');
+        } else {
+            tradeStatus.html('<h3> trade rejected :( </h3>');
+        }
+
+        //display reset button
+        reset.html('<button class = "resetButton"> reset </button>')
+    });
+
+    // reset button function
+    $('.reset').on('click', 'button', function(){
+        location.reload();
+    })
+}
