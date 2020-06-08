@@ -1,0 +1,48 @@
+
+html {
+    font-size: 62.5%;
+}
+
+.wrapper {
+    max-width: 1300px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 8rem;
+    font-family: $primaryFont;
+    color: $primaryColour;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 4rem;
+    font-family: $secondaryFont;
+    color: $primaryColour;
+    text-align: center;
+    margin: 15px 0px;
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: $secondaryFont;
+    text-align: center;
+}
+
+span {
+    font-size: 6rem;
+    font-family: $primaryFont;
+    color: $secondaryColour;
+    display: block;
+}
+
+button {
+    padding: 20px;
+    font-family: $primaryFont;
+    font-size: 2rem;
+    color: $secondaryColour;
+    background-color: $primaryColour;
+    border: 5px solid $secondaryColour;
+}

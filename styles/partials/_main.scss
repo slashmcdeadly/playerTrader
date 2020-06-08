@@ -1,0 +1,98 @@
+// FORM STYLINGS
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    border: none;
+    button {
+        width: 100%;
+    }
+}
+
+form > div {
+    display: flex;
+    justify-content: center;
+}
+
+fieldset input {
+    width: 100%;
+    margin: 20px 0px;
+    padding: 15px;
+    font-family: $secondaryFont;
+    font-weight: 300;
+    color: $primaryColour;
+    font-size: 2rem;
+    border: 2px solid $secondaryColour;
+}
+
+
+// remove the spinner buttons
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+fieldset button {
+    margin: 0 auto;
+}
+
+.playerRight input,
+.playerRight input::placeholder {
+    text-align: right;
+}
+
+.playerRight {
+    margin-left: 20px;
+}
+
+.playerLeft {
+    margin-right: 20px;
+}
+
+// COMPLETE TRADE DIV STYLES
+
+.evaluateTrade {
+    margin: 0 auto;
+    button {
+        max-width: 200px;
+    }
+}
+
+.completeTrade {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20vh;
+    left: -85%;
+    z-index: 10;
+    height: 600px;
+    width: 600px; 
+    border-radius: 50%;
+    background-color: black;
+    transition: all .5s ease-in-out;
+    h3 {
+        color: $secondaryColour;
+        font-size: 7rem;
+        font-family: $primaryFont;
+    }
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-family: $secondaryFont;
+    background-color: $secondaryColour;
+    color: $primaryColour;
+    font-size: 1.5rem;
+    a {
+        text-decoration: none;
+        color: $primaryColour;
+        font-family: $primaryFont;
+    }
+}

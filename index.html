@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300;400&family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/partials/styles.css">
     <title>Document</title>
 </head>
 <body> 
@@ -18,30 +19,30 @@
             <div>
 
                 <fieldset class="playerLeft">
-
+                    <h2>player 1</h2>
                     <!-- player name -->
                     <label for="nameLeft" class="sr-only"> Name </label>
                     <input type="text" name="playerLeft" id="nameLeft" class="player name" placeholder="name" >
 
                     <!-- player age -->
                     <label for="ageLeft" class="sr-only"> Name </label>
-                    <input type="text" name="playerLeft" id="ageLeft" class="player age" placeholder="age" >
+                    <input type="number" name="playerLeft" id="ageLeft" class="player age" placeholder="age" step='0.01' min='0' max='50'>
 
                     <!-- player goals per game -->
                     <label for="gpgLeft" class="sr-only"> Goals per game </label>
-                    <input type="text" name="playerLeft" id="gpgLeft" class="player gpg" placeholder="goals / game" >
+                    <input type="number" name="playerLeft" id="gpgLeft" class="player gpg" placeholder="goals / game" placeholder="age" step='0.01' min='0' max='20'>
 
                     <!-- player assists per game -->
                     <label for="apgLeft" class="sr-only"> assists per game </label>
-                    <input type="text" name="playerLeft" id="apgLeft" class="player apg" placeholder="assists / game" >
+                    <input type="number" name="playerLeft" id="apgLeft" class="player apg" placeholder="assists / game" placeholder="age" step='0.01' min='0' max='20'>
 
                     <!-- player shots per game -->
                     <label for="spgLeft" class="sr-only"> shots per game </label>
-                    <input type="text" name="playerLeft" id="spgLeft" class="player spg" placeholder="shots / game" >
+                    <input type="number" name="playerLeft" id="spgLeft" class="player spg" placeholder="shots / game" placeholder="age" step='0.01' min='0' max='20'>
 
                     <!-- player hits per game -->
                     <label for="hpgLeft" class="sr-only"> hits per game </label>
-                    <input type="text" name="playerLeft" id="hpgLeft" class="player hpg" placeholder="hits / game" >
+                    <input type="number" name="playerLeft" id="hpgLeft" class="player hpg" placeholder="hits / game" step='0.01' min='0' max='20'>
         
                     <!-- submit button -->
                     <button id="submitPlayerLeft" class="playerButton" name="left">submit player</button>
@@ -55,30 +56,30 @@
         
         
                 <fieldset class="playerRight">
-
+                    <h2>player 2</h2>
                     <!-- player name -->
                     <label for="nameRight" class="sr-only"> Name </label>
                     <input type="text" name="playerRight" id="nameRight" class="player name" placeholder="name" >
 
                     <!-- player age -->
                     <label for="ageRight" class="sr-only"> Name </label>
-                    <input type="text" name="playerRight" id="ageRight" class="player age" placeholder="age" >
+                    <input type="number" name="playerRight" id="ageRight" class="player age" placeholder="age" step='0.01' min='0' max='50'>
 
                     <!-- player goals per game -->
                     <label for="gpgRight" class="sr-only"> goals per game </label>
-                    <input type="text" name="playerRight" id="gpgRight" class="player gpg" placeholder="goals / game" >
+                    <input type="number" name="playerRight" id="gpgRight" class="player gpg" placeholder="goals / game" step='0.01' min='0' max='20'>
 
                     <!-- player assists per game -->
                     <label for="apgRight" class="sr-only"> assists per game </label>
-                    <input type="text" name="playerRight" id="apgRight" class="player apg" placeholder="assists / game" >
+                    <input type="number" name="playerRight" id="apgRight" class="player apg" placeholder="assists / game" step='0.01' min='0' max='20'>
 
                     <!-- player shots per game -->
                     <label for="spgRight" class="sr-only"> shots per game </label>
-                    <input type="text" name="playerRight" id="spgRight" class="player spg" placeholder="shots / game" >
+                    <input type="number" name="playerRight" id="spgRight" class="player spg" placeholder="shots / game" step='0.01' min='0' max='20'>
 
                     <!-- player hits per game -->
                     <label for="hpgRight" class="sr-only"> hits per game </label>
-                    <input type="text" name="playerRight hpg" id="hpgRight" class="player hpg" placeholder="hits / game" >
+                    <input type="number" name="playerRight hpg" id="hpgRight" class="player hpg" placeholder="hits / game" step='0.01' min='0' max='20'>
         
                     <!-- submit button -->
                     <button id="submitPlayerRight" class="playerButton" name="right">submit player</button>
@@ -87,18 +88,18 @@
         
             </div>
 
-            <div class="completeTrade">
-                <div id="evaluateTrade"></div>
-    
-                <div class="tradeStatus"></div>
-
-                <div class="reset"></div>
-            </div>
+            <div id="evaluateTrade"></div>
+            
             
         </form>
+        <div class="completeTrade">
+            <div class="tradeStatus"></div>
+
+            <div class="reset"></div>
+        </div>
     </main>
 
-    <footer class="wrapper">
+    <footer>
         <p>made by <a href="http://scottcarterdev.com">Scott Carter</a>.</p>
     </footer>
 
