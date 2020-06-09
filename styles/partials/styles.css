@@ -499,6 +499,9 @@ footer a {
   h2 {
     font-size: 2rem;
   }
+  fieldset input {
+    margin: 10px 0px;
+  }
   .playerRight, .playerLeft {
     top: 20px;
   }
@@ -510,12 +513,13 @@ footer a {
   }
   .completeTrade h3 {
     font-size: 4rem;
+    margin: 0px;
   }
 }
 
 @media (max-height: 690px) {
   #evaluateTrade {
-    top: 80px;
+    top: 30px;
   }
   fieldset input {
     font-size: 1.9rem;
