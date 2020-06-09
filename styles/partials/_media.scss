@@ -68,11 +68,6 @@
         font-size: 2rem;
     }
 
-    fieldset input {
-        margin: 10px 0px;
-    }
-
-
     .playerRight, .playerLeft {
         top: 20px;
     }
@@ -91,7 +86,7 @@
 // smaller phone sizes
 @media (max-height: 690px){
     #evaluateTrade {
-        top: 30px;
+        top: 0px;
     }
 
     fieldset input {
