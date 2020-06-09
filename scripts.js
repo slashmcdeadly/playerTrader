@@ -1,8 +1,4 @@
-    // document ready
-    $(function(){
-        // run trade app
-        tradeApp.init();
-    })
+   
     
     let player = [
         {},
@@ -13,6 +9,7 @@
     let leftTradeScore, rightTradeScore = 0;
     
     const tradeApp = {};
+
     tradeApp.init = () => {
     
         
@@ -28,8 +25,8 @@
             // evaluate button creation function
             const evaluateButton = () =>  {
                 if ($('#displayPlayerLeft').hasClass('submitted') && $('#displayPlayerRight').hasClass('submitted')) {
-                    $('#evaluateTrade').html('<button type="submit" id="evaluate" class="evaluate" name="evaluate"> evaluate </button>')
-                    .css({'position' : 'relative', 'bottom' : '100px'});}
+                    $('#evaluateTrade').html('<button type="submit" id="evaluate" class="evaluate" name="evaluate"> evaluate </button>') 
+                }
             };
             
             // age modifier method
@@ -54,7 +51,8 @@
             // assign the values to the player array and wieght them based on which button you press.
     
             if (e.target.id === 'submitPlayerLeft'){
-    
+
+                const playerLeft = $('.playerLeft');
                 const displayLeft = $("#displayPlayerLeft");
     
                 player[0] = {
@@ -77,16 +75,18 @@
     
                 // add in the html elements to display the player name and trade score
                 
-                displayLeft.css({'position' : 'relative', 'top' : '150px', 'max-height' : '200px' , 'margin' : '20px', })
+                // displayLeft.css({'position' : 'relative', 'top' : '150px', 'max-height' : '200px' , 'margin' : '20px', })
                 displayLeft.html(`<h2> ${player[0].name} </h2>`);
                 displayLeft.append(`<h3> Trade Score: <span>${player[0].totalTradeScore(player[0])}</span> </h3>`);
                 // give class submitted
                 displayLeft.addClass('submitted');
+                playerLeft.css('display' , 'none');
     
                 evaluateButton();
                 
             } else {
-    
+                
+                const playerRight = $('.playerRight')
                 const displayRight = $("#displayPlayerRight");
     
                 player[1] = {
@@ -108,11 +108,13 @@
                 }   
     
                 // add in the html elements to display the player name and trade score
-                displayRight.css({'position' : 'relative', 'top' : '150px', 'max-height' : '200px' , 'margin' : '20px', })
+                // displayRight.css({'position' : 'relative', 'top' : '150px', 'max-height' : '200px' , 'margin' : '20px', })
                 displayRight.html(`<h2> ${player[1].name} </h2>`);
                 displayRight.append(`<h3>Trade Score: <span>${player[1].totalTradeScore(player[1])}</span> </h3>`);
                 // give class submitted
                 displayRight.addClass('submitted');
+                playerRight.css('display' , 'none');
+
     
                 evaluateButton();
             }  
@@ -136,11 +138,13 @@
             if (tradeDifference <= 1 && tradeDifference >= -1){
                 tradeStatus.html('<h3> trade accepted!!! </h3>');
                 completeTrade.css({'left' : 'calc(50% - 300px)'})
+                $('#evaluateTrade').css('display' , 'none');
             } else {
                 tradeStatus.html('<h3> trade rejected </h3>');
                 completeTrade.css({'left' : 'calc(50% - 300px)'})
+                $('#evaluateTrade').css('display' , 'none');
             }
-    
+
             //display reset button
             reset.html('<button class = "resetButton"> reset </button>')
         });
@@ -151,6 +155,10 @@
         })
     }
    
-    
+     // document ready
+     $(function(){
+        // run trade app
+        tradeApp.init();
+    })
 
             

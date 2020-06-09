@@ -1,0 +1,96 @@
+
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+
+    .playerRight, .playerLeft {
+        width: calc(50% - 40px);
+    }
+        
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+    h1 {
+        margin-top: 20px;
+        font-size: 10vw;
+    }
+
+    h2 {
+        margin-top: 0px;
+    }
+
+    .playerRight, .playerLeft {
+        width: 100%;
+        margin: 0px;
+        position: relative;
+        top: 50px;
+    }
+
+    fieldset button {
+        margin-bottom: 50px;
+    }
+
+    form > div {
+        flex-direction: column;
+    }
+
+    .playerRight {
+        order: 2;
+    }
+
+    #displayPlayerLeft {
+        order: 3;
+    }
+
+    #displayPlayerRight {
+        order: 4;
+    }
+
+    #displayPlayerLeft, #displayPlayerRight {
+        top: 50px;
+    }
+
+    #evaluateTrade {
+        top: 130px;
+    }
+
+    .completeTrade {
+        top: 15vh;
+    }
+
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+
+    h2 {
+        font-size: 2rem;
+    }
+
+
+    .playerRight, .playerLeft {
+        top: 20px;
+    }
+
+    .completeTrade {
+        width: 300px;
+        height: 300px;
+        transform: translate(150px, 20px);
+        h3 {
+            font-size: 4rem;
+        }
+    }
+}
+
+// smaller phone sizes
+@media (max-height: 690px){
+    #evaluateTrade {
+        top: 80px;
+    }
+
+    fieldset input {
+        font-size: 1.9rem;
+        padding : 10px;
+    }
+}

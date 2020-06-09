@@ -45,10 +45,27 @@ fieldset button {
 
 .playerRight {
     margin-left: 20px;
+    order: 4;
 }
 
 .playerLeft {
     margin-right: 20px;
+    order: 1;
+}
+
+#displayPlayerLeft, #displayPlayerRight{
+    position : relative; 
+    top : 150px;
+    max-height : 200px; 
+    margin : 20px 
+}
+
+#displayPlayerLeft {
+    order: 2;
+}
+
+#displayPlayerRight {
+    order: 3;
 }
 
 // COMPLETE TRADE DIV STYLES
@@ -60,6 +77,11 @@ fieldset button {
     }
 }
 
+#evaluateTrade {
+    position: relative;
+    top: 250px;
+}
+
 .completeTrade {
     display: flex;
     flex-direction: column;
@@ -67,7 +89,7 @@ fieldset button {
     align-items: center;
     position: absolute;
     top: 20vh;
-    left: -85%;
+    left: -185%;
     z-index: 10;
     height: 600px;
     width: 600px; 

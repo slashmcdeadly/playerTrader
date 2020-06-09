@@ -228,6 +228,7 @@ html {
 
 html {
   font-size: 62.5%;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -238,7 +239,7 @@ html {
 
 h1 {
   text-align: center;
-  font-size: 8rem;
+  font-size: 5vw;
   font-family: "Monoton", cursive;
   color: #00539B;
   margin-bottom: 0px;
@@ -255,6 +256,7 @@ h2 {
 h3 {
   font-size: 2rem;
   font-family: "Alegreya Sans SC", sans-serif;
+  color: #00539B;
   text-align: center;
 }
 
@@ -342,10 +344,35 @@ fieldset button {
 
 .playerRight {
   margin-left: 20px;
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
 }
 
 .playerLeft {
   margin-right: 20px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+#displayPlayerLeft, #displayPlayerRight {
+  position: relative;
+  top: 150px;
+  max-height: 200px;
+  margin: 20px;
+}
+
+#displayPlayerLeft {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#displayPlayerRight {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
 }
 
 .evaluateTrade {
@@ -354,6 +381,11 @@ fieldset button {
 
 .evaluateTrade button {
   max-width: 200px;
+}
+
+#evaluateTrade {
+  position: relative;
+  top: 250px;
 }
 
 .completeTrade {
@@ -372,7 +404,7 @@ fieldset button {
           align-items: center;
   position: absolute;
   top: 20vh;
-  left: -85%;
+  left: -185%;
   z-index: 10;
   height: 600px;
   width: 600px;
@@ -403,5 +435,91 @@ footer a {
   text-decoration: none;
   color: #00539B;
   font-family: "Monoton", cursive;
+}
+
+/* Portrait tablet and small desktops */
+@media (max-width: 940px) {
+  .playerRight, .playerLeft {
+    width: calc(50% - 40px);
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+  h1 {
+    margin-top: 20px;
+    font-size: 10vw;
+  }
+  h2 {
+    margin-top: 0px;
+  }
+  .playerRight, .playerLeft {
+    width: 100%;
+    margin: 0px;
+    position: relative;
+    top: 50px;
+  }
+  fieldset button {
+    margin-bottom: 50px;
+  }
+  form > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .playerRight {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  #displayPlayerLeft {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  #displayPlayerRight {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  #displayPlayerLeft, #displayPlayerRight {
+    top: 50px;
+  }
+  #evaluateTrade {
+    top: 130px;
+  }
+  .completeTrade {
+    top: 15vh;
+  }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  h2 {
+    font-size: 2rem;
+  }
+  .playerRight, .playerLeft {
+    top: 20px;
+  }
+  .completeTrade {
+    width: 300px;
+    height: 300px;
+    -webkit-transform: translate(150px, 20px);
+            transform: translate(150px, 20px);
+  }
+  .completeTrade h3 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-height: 690px) {
+  #evaluateTrade {
+    top: 80px;
+  }
+  fieldset input {
+    font-size: 1.9rem;
+    padding: 10px;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
