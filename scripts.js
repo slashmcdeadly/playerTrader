@@ -50,7 +50,6 @@ tradeApp.submitPlayer = function(){
         
         // assign the values to the player array and wieght them based on which button you press.
         
-        
         if (e.target.id === 'submitPlayerLeft'){
             
             const playerLeft = $('.playerLeft');

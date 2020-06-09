@@ -47,4 +47,8 @@ button {
     color: $secondaryColour;
     background-color: $primaryColour;
     border: 5px solid $secondaryColour;
+    transition: all .3s ease-in;
+    &:hover, &:focus {
+        font-size: 2.4rem;
+    }
 }

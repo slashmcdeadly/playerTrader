@@ -274,6 +274,12 @@ button {
   color: #F47D30;
   background-color: #00539B;
   border: 5px solid #F47D30;
+  -webkit-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+}
+
+button:hover, button:focus {
+  font-size: 2.4rem;
 }
 
 fieldset {
